@@ -31,7 +31,7 @@
           </div>
           <div class="form-group">
             <label>Телефон</label>
-            <input v-model="phone" placeholder="+7 (900) 123-45-67" />
+            <input v-model="phone" type="tel" inputmode="numeric" placeholder="+7 (900) 123-45-67" @input="phone = phone.replace(/\D/g, '')" />
           </div>
           <button class="btn btn-primary" @click="placeOrder" :disabled="!address || !phone">
             Подтвердить заказ

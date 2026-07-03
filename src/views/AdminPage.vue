@@ -67,11 +67,11 @@
     <div v-if="activeTab === 'orders'" class="admin-section">
       <h2>Управление заказами</h2>
       <div v-if="ordersStore.allOrders.length > 0" class="admin-table">
-        <div class="table-header">
-          <span>№</span><span>Дата</span><span>Клиент</span><span>Сумма</span><span>Статус</span><span>Действия</span>
+        <div class="table-header orders-header">
+          <span>№ заказа</span><span>Дата</span><span>Клиент</span><span>Сумма</span><span>Статус</span><span>Действия</span>
         </div>
-        <div class="table-row" v-for="o in ordersStore.allOrders" :key="o.id">
-          <span>#{{ o.id }}</span>
+        <div class="table-row orders-row" v-for="o in ordersStore.allOrders" :key="o.id">
+          <span class="order-id">#{{ String(o.id).slice(-6) }}</span>
           <span>{{ o.date }}</span>
           <span>{{ getUserName(o.userId) }}</span>
           <span>{{ o.total }} ₽</span>
@@ -211,6 +211,16 @@ function getUserName(userId) {
   align-items: center;
   gap: 8px;
   font-size: 14px;
+}
+.orders-header {
+  grid-template-columns: 90px 110px 1fr 80px 110px 140px;
+}
+.orders-row {
+  grid-template-columns: 90px 110px 1fr 80px 110px 140px;
+}
+.order-id {
+  font-family: monospace;
+  font-size: 13px;
 }
 .table-row:hover {
   background: #fafafa;
