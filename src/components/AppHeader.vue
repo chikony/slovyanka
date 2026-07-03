@@ -2,8 +2,7 @@
   <header class="header">
     <div class="header-inner">
       <router-link to="/" class="logo">
-        <span class="logo-icon"></span>
-        <span class="logo-text">Словянка</span>
+        <img :src="iconPath('../logo.png')" alt="Словянка" class="logo-img" />
       </router-link>
       <nav class="nav">
         <router-link to="/" class="nav-link" active-class="active">Главная</router-link>
@@ -65,6 +64,7 @@ const openCart = inject('openCart')
   font-size: 20px;
 }
 .logo:hover { color: #fff; }
+.logo-img { height: 40px; width: auto; }
 .logo-icon { font-size: 28px; }
 .nav {
   display: flex;
