@@ -10,13 +10,17 @@
 
       <div class="card form-card" v-if="tab === 'login'">
         <h2>Вход</h2>
+        <div class="login-hint">
+          <strong>Админ:</strong> admin@slovyanka.ru / admin123<br />
+          <strong>Пользователь:</strong> ivan@mail.ru / 123456
+        </div>
         <div class="form-group">
           <label>Email</label>
-          <input v-model="loginForm.email" type="email" placeholder="email@example.com" />
+          <input v-model="loginForm.email" type="email" placeholder="admin@slovyanka.ru" />
         </div>
         <div class="form-group">
           <label>Пароль</label>
-          <input v-model="loginForm.password" type="password" placeholder="Ваш пароль" />
+          <input v-model="loginForm.password" type="password" placeholder="admin123" />
         </div>
         <p v-if="loginError" class="error">{{ loginError }}</p>
         <button class="btn btn-primary" @click="doLogin">Войти</button>
@@ -161,6 +165,16 @@ function statusClass(status) {
 .form-card h2 {
   margin-bottom: 20px;
   text-align: center;
+}
+.login-hint {
+  background: #f0fdf4;
+  border: 1px solid #b8e6c8;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text);
 }
 .error {
   color: #dc3545;
