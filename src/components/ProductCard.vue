@@ -1,6 +1,6 @@
 <template>
   <div class="product-card card" @click="goToProduct">
-    <div class="product-image">{{ product.image }}</div>
+    <div class="product-image"><img :src="`${base}${product.image}`" :alt="product.name" class="product-img" /></div>
     <div class="product-body">
       <span class="badge">{{ product.category }}</span>
       <span class="product-name">{{ product.name }}</span>
@@ -18,6 +18,7 @@ import { useRouter } from 'vue-router'
 import { useCartStore } from '../stores/cart'
 import { useAuthStore } from '../stores/auth'
 
+const base = import.meta.env.BASE_URL
 const router = useRouter()
 const props = defineProps({ product: { type: Object, required: true } })
 const cartStore = useCartStore()
@@ -47,10 +48,14 @@ function addToCart() {
   box-shadow: 0 8px 24px rgba(0,0,0,0.12);
 }
 .product-image {
-  font-size: 64px;
-  text-align: center;
-  padding: 20px;
-  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  height: 180px;
+  overflow: hidden;
+  background: #f8f9fa;
+}
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .product-body {
   padding: 16px;

@@ -2,7 +2,7 @@
   <div class="product-detail" v-if="product">
     <router-link to="/catalog" class="back-link">← Назад к каталогу</router-link>
     <div class="card product-main">
-      <div class="product-image">{{ product.image }}</div>
+      <div class="product-image"><img :src="`${base}${product.image}`" :alt="product.name" class="product-img" /></div>
       <div class="product-info">
         <span class="badge">{{ product.category }}</span>
         <h1>{{ product.name }}</h1>
@@ -60,6 +60,7 @@ import { useReviewsStore } from '../stores/reviews'
 import { useAuthStore } from '../stores/auth'
 import { useCartStore } from '../stores/cart'
 
+const base = import.meta.env.BASE_URL
 const route = useRoute()
 const productsStore = useProductsStore()
 const reviewsStore = useReviewsStore()
@@ -106,14 +107,17 @@ function submitReview() {
   margin-bottom: 24px;
 }
 .product-image {
-  font-size: 120px;
+  width: 300px;
+  min-height: 300px;
   background: #f8f9fa;
   border-radius: 12px;
-  min-width: 200px;
-  min-height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .product-info {
   display: flex;
