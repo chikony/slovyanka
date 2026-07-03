@@ -10,22 +10,22 @@
 
     <section class="features">
       <div class="feature-card card">
-        <span class="feature-icon"></span>
+        <span class="feature-icon"><img src="/icons/fresh-products.png" alt="Свежие продукты" /></span>
         <h3>Свежие продукты</h3>
         <p>Ежедневные поставки от проверенных фермеров</p>
       </div>
       <div class="feature-card card">
-        <span class="feature-icon"></span>
+        <span class="feature-icon"><img src="/icons/free-shipping.png" alt="Бесплатная доставка" /></span>
         <h3>Бесплатная доставка</h3>
         <p>При заказе от 1500 ₽ доставим бесплатно</p>
       </div>
       <div class="feature-card card">
-        <span class="feature-icon"></span>
+        <span class="feature-icon"><img src="/icons/low-price.png" alt="Низкие цены" /></span>
         <h3>Низкие цены</h3>
         <p>Мы гарантируем лучшие цены в районе</p>
       </div>
       <div class="feature-card card">
-        <span class="feature-icon"></span>
+        <span class="feature-icon"><img src="/icons/discounts.png" alt="Акции и скидки" /></span>
         <h3>Акции и скидки</h3>
         <p>Постоянные акции и программа лояльности</p>
       </div>
@@ -110,9 +110,13 @@ const sampleReviews = reviewsStore.reviews.slice(-3).reverse()
   padding: 32px 20px;
 }
 .feature-icon {
-  font-size: 40px;
   display: block;
   margin-bottom: 12px;
+  height: 48px;
+}
+.feature-icon img {
+  height: 48px;
+  width: auto;
 }
 .feature-card h3 {
   margin-bottom: 8px;

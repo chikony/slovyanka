@@ -17,7 +17,8 @@
       </nav>
       <div class="header-actions">
         <button class="cart-btn" @click="openCart">
-          Корзина <span class="cart-count" v-if="cartStore.totalItems">{{ cartStore.totalItems }}</span>
+          <img src="/icons/cart-icon.png" alt="Корзина" class="cart-img" />
+          <span class="cart-count" v-if="cartStore.totalItems">{{ cartStore.totalItems }}</span>
         </button>
       </div>
     </div>
@@ -110,6 +111,11 @@ const openCart = inject('openCart')
 }
 .cart-btn:hover {
   background: rgba(255,255,255,0.25);
+}
+.cart-img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
 }
 .cart-count {
   position: absolute;
