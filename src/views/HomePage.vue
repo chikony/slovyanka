@@ -10,22 +10,22 @@
 
     <section class="features">
       <div class="feature-card card">
-        <span class="feature-icon"><img src="/icons/fresh-products.png" alt="Свежие продукты" /></span>
+        <span class="feature-icon"><img :src="iconPath('fresh-products.png')" alt="Свежие продукты" /></span>
         <h3>Свежие продукты</h3>
         <p>Ежедневные поставки от проверенных фермеров</p>
       </div>
       <div class="feature-card card">
-        <span class="feature-icon"><img src="/icons/free-shipping.png" alt="Бесплатная доставка" /></span>
+        <span class="feature-icon"><img :src="iconPath('free-shipping.png')" alt="Бесплатная доставка" /></span>
         <h3>Бесплатная доставка</h3>
         <p>При заказе от 1500 ₽ доставим бесплатно</p>
       </div>
       <div class="feature-card card">
-        <span class="feature-icon"><img src="/icons/low-price.png" alt="Низкие цены" /></span>
+        <span class="feature-icon"><img :src="iconPath('low-price.png')" alt="Низкие цены" /></span>
         <h3>Низкие цены</h3>
         <p>Мы гарантируем лучшие цены в районе</p>
       </div>
       <div class="feature-card card">
-        <span class="feature-icon"><img src="/icons/discounts.png" alt="Акции и скидки" /></span>
+        <span class="feature-icon"><img :src="iconPath('discounts.png')" alt="Акции и скидки" /></span>
         <h3>Акции и скидки</h3>
         <p>Постоянные акции и программа лояльности</p>
       </div>
@@ -67,6 +67,8 @@
 import ProductCard from '../components/ProductCard.vue'
 import { useProductsStore } from '../stores/products'
 import { useReviewsStore } from '../stores/reviews'
+
+const iconPath = (name) => `${import.meta.env.BASE_URL}icons/${name}`
 
 const productsStore = useProductsStore()
 const reviewsStore = useReviewsStore()

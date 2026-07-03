@@ -17,7 +17,7 @@
       </nav>
       <div class="header-actions">
         <button class="cart-btn" @click="openCart">
-          <img src="/icons/cart-icon.png" alt="Корзина" class="cart-img" />
+          <img :src="iconPath('cart-icon.png')" alt="Корзина" class="cart-img" />
           <span class="cart-count" v-if="cartStore.totalItems">{{ cartStore.totalItems }}</span>
         </button>
       </div>
@@ -26,9 +26,11 @@
 </template>
 
 <script setup>
-import { inject } from 'vue'
+import { inject, computed } from 'vue'
 import { useAuthStore } from '../stores/auth'
 import { useCartStore } from '../stores/cart'
+
+const iconPath = (name) => `${import.meta.env.BASE_URL}icons/${name}`
 
 const authStore = useAuthStore()
 const cartStore = useCartStore()
